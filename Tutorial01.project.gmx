@@ -10,9 +10,15 @@
   <sprites name="sprites">
     <sprite>sprites\BF_Leon</sprite>
     <sprite>sprites\idle_ela</sprite>
+    <sprite>sprites\textbox</sprite>
+    <sprite>sprites\MC_idle</sprite>
+    <sprite>sprites\MC_walk</sprite>
+    <sprite>sprites\sprite_wall</sprite>
+    <sprite>sprites\sprite_roof</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_clouds</background>
+    <background>background\background2</background>
   </backgrounds>
   <paths name="paths"/>
   <fonts name="fonts">
@@ -21,9 +27,12 @@
   <objects name="objects">
     <object>objects\obj_player</object>
     <object>objects\obj_textbox</object>
+    <object>objects\collision</object>
+    <object>objects\obj_wall</object>
+    <object>objects\obj_roof</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\room0</room>
+    <room>rooms\room3</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
