@@ -31,6 +31,8 @@ grav = 0.9;
 hsp = 0;
 vsp = 0;
 jumpspeed = 15;
+jump_number = 2;
+jump_current = 0;
 movespeed = 4;
 </string>
           </argument>
@@ -59,43 +61,32 @@ key_right = keyboard_check(vk_right);
 key_left = -keyboard_check(vk_left);
 key_jump = keyboard_check_pressed(vk_up);
 key_down = keyboard_check(vk_down);
-double_jump = 0;
 
 //React to inputs
 move = key_left + key_right;
 hsp = move * movespeed;
+
+if (global.Convo = true)
+{
+    move = 0;
+    hsp = 0;
+}
+
 if (key_down || place_meeting(x,y,obj_roof))
 {
     key_down = true;
 }
-if (((place_meeting(x,y+1,obj_wall)|| place_meeting(x,y+1,obj_roof)) &amp;&amp; !key_down) || double_jump)
+
+if(key_jump &amp;&amp; jump_current &gt; 0)
 {
     vsp = key_jump * -jumpspeed;
-}
-if (vsp != 0 &amp;&amp; double_jump != 0)
-{
-    vsp = double_jump + vsp;
-    double_jump = 0;
-}
-if (key_jump &amp;&amp; double_jump !=0)
-{
-    double_jump = 1;
+    jump_current--;
 }
 
 //Gravity maximum speed
 if(vsp &lt; 20)
 {
     vsp += grav;
-}
-//Changing animation Orientation
-if(move &lt; 0)
-{   
-    image_xscale = -1;
-}
-
-else if(move &gt; 0)
-{
-    image_xscale = 1;
 }
 
 //Horizontal Collision
@@ -114,6 +105,10 @@ if (place_meeting(x, y+vsp, obj_wall))
     while(!place_meeting(x, y+sign(vsp), obj_wall))
     {
         y += sign(vsp);
+    } 
+    if(vsp &gt; 0)
+    {
+        jump_current = jump_number;
     }
     vsp = 0;
 }
@@ -133,17 +128,17 @@ if (place_meeting(x, y+vsp, obj_roof) &amp;&amp; !key_down)
     while(!place_meeting(x, y+sign(vsp), obj_roof))
     {
         y += sign(vsp);
+    }    
+    if(vsp &gt; 0)
+    {
+        jump_current = jump_number;
     }
     vsp = 0;
 }
-
-else if(place_meeting(x, y, obj_roof) &amp;&amp; key_down)
+// If the key_down is being pressed, the character should fall
+else if(place_meeting(x, y+vsp, obj_roof) &amp;&amp; key_down)
 {
-    vsp = key_down * jumpspeed-5;
-    if(!place_meeting(x,y,obj_roof))
-    {
-        teste=true;
-    }
+    vsp = key_down * jumpspeed-3;
 }
 
 //Changing Animations
@@ -155,6 +150,17 @@ else
 {
     sprite_index = MC_walk;
 }
+//Changing animation Orientation
+if(move &lt; 0)
+{   
+    image_xscale = -1;
+}
+
+else if(move &gt; 0)
+{
+    image_xscale = 1;
+}
+
 x += hsp;
 y += vsp;
 </string>

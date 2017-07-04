@@ -339,9 +339,9 @@ if global.Convo == true &amp;&amp; convo == true{
         //draw_rectangle_colour(mx2 - 0, my2 - 0, mx2 - 0 + string_width(speak[num]), my2 - 0 + string_height(speak[num]), c_reg, c_reg, c_reg, c_reg, true);
         
         ///drawing text
-        draw_text(mx2 +5 , my2 -30, speak[num]);
+        //draw_text(mx2 +5 , my2 -30, speak[num]);
         ///drawing highlight text
-       // draw_text_colour(mx3 + 30, my3 - 0, string_copy(speak[num], 0, scroll_text), sc_silver, sc_white, sc_green, sc_teal, 1);
+        draw_text_colour(mx2 +5, my2 -30, string_copy(speak[num], 0, scroll_text), c_reg, c_reg, c_reg, c_reg, 1);
         
         /// drawing the "next" button
         if scroll_text &gt;= string_length(speak[num]){
