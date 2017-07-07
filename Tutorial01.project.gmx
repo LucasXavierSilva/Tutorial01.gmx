@@ -15,21 +15,29 @@
     <sprite>sprites\MC_walk</sprite>
     <sprite>sprites\sprite_wall</sprite>
     <sprite>sprites\sprite_roof</sprite>
+    <sprite>sprites\sprite_monster</sprite>
+    <sprite>sprites\sprite_wpn_dik</sprite>
+    <sprite>sprites\sprite_wpn_dik_hitbox</sprite>
   </sprites>
   <backgrounds name="background">
-    <background>background\bg_clouds</background>
+    <background>background\bg_teste</background>
     <background>background\background2</background>
   </backgrounds>
   <paths name="paths"/>
+  <scripts name="scripts">
+    <script>scripts\Character_Collision.gml</script>
+  </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_textbox_test</font>
   </fonts>
   <objects name="objects">
+    <object>objects\obj_wpn</object>
     <object>objects\obj_player</object>
     <object>objects\obj_textbox</object>
     <object>objects\collision</object>
     <object>objects\obj_wall</object>
     <object>objects\obj_roof</object>
+    <object>objects\obj_monster</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room3</room>
